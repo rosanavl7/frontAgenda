@@ -1,0 +1,41 @@
+<!-- Crea un nuevo gato del CreateUpdate Module 
+<button (click)="setCreate()">Crear nuevo Contacto</button>-->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Gestión de contactos</h1>
+  
+  </div>
+</div>
+<div class="container">
+  <!--Formulario selectedContact  selectedGato-->
+  <app-createcontact
+    [selectedContact]="selectedContact"
+    (createUpdateContactEvent)="onCreateUpdateContact($event)"
+  ></app-createcontact>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" >Teléfono</th>
+        <th scope="col" >Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Borrar</th>
+        <th scope="col">Editar</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let contact of ContactsList; let position = index">
+      <td>{{ contact.phone }}</td>
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.surname }}</td>
+      <td (click)="deleteContact(contact._id)" style="cursor: pointer">Borrar</td>
+      <td (click)="setSelectedContact(contact, position)" style="cursor: pointer">
+        Editar
+      </td>
+    </tr>
+  </table>
+  <!-- 
+  <div *ngIf="selectedContact">
+    <h1>Selected Contact</h1>
+    <h3>Nombre: {{ selectedContact.nombre }}</h3>
+  </div>-->
+</div>

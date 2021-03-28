@@ -1,0 +1,14 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+    <label for="id"> id</label>
+    <input type="text" name="_id" formControlName="_id">
+    <label for="phone">Teléfono</label>
+    <input type="text" name="phone" formControlName="phone">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" formControlName="name">
+    <label for="surname">Apellido</label>
+    <input type="text" name="surname" formControlName="surname">
+  
+    <button>
+        {{createUpdateMsg}}
+    </button>
+</form>
